@@ -1,4 +1,4 @@
-== What's this ?
+## What's this ?
 
 Recently I got my hands on a quite ancient microcontroller kit (http://www.amazon.de/Lernpaket-Roboter-selbst-bauen-Roboter-Programmierung/dp/3645650261/ref=sr_1_2/275-2526774-4865333?ie=UTF8&qid=1451581669&sr=8-2&keywords=franzis+lernpaket+roboter+selbst+bauen) sold by Franzis Verlag.
 
@@ -12,18 +12,18 @@ The MCS bootloader works in the following way:
 2.) It polls the serial port waiting for either 123 (flash upload) or 124 (eeprom upload) 
 3.) After it receives one of those two bytes, it runs a simple X-modem protocol to read the data in 128-byte chunks and writes it to flash/eeprom.
 
-== Compiling 
+## Compiling 
 
 You need a linux system with libftdi-dev (and libusb since this is what libftdi uses) installed. I compiled the program using gcc but I suspect any C compiler will do.
 
 To build the program, just run
 
 
-````
-   make   
-````
+```
+make   
+```
 
-== Uploading software to the microcontroller
+## Uploading software to the microcontroller
 
 Before you begin...
 
@@ -35,6 +35,8 @@ Before you begin...
 
 To upload a raw file to the controller, just run
 
+```
 mcs_upload <raw file>
+```
 
 You now need to reset/power-cycle the controller so that the bootloader gets executed. If all went well, the controller should execute your program after the upload finishes.
