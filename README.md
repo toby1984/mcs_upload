@@ -1,6 +1,6 @@
 ## What's this ?
 
-Recently I got my hands on a quite ancient microcontroller kit (http://www.amazon.de/Lernpaket-Roboter-selbst-bauen-Roboter-Programmierung/dp/3645650261/ref=sr_1_2/275-2526774-4865333?ie=UTF8&qid=1451581669&sr=8-2&keywords=franzis+lernpaket+roboter+selbst+bauen) sold by Franzis Verlag.
+Recently I got my hands on a quite ancient microcontroller kit sold by Franzis Verlag (http://www.amazon.de/Lernpaket-Roboter-selbst-bauen-Roboter-Programmierung/dp/3645650261/ref=sr_1_2/275-2526774-4865333?ie=UTF8&qid=1451581669&sr=8-2&keywords=franzis+lernpaket+roboter+selbst+bauen).
 
 Since the kit only came with tools for programming in Basic on Windows (Bascom-AVR) but I wanted to do C programming on linux, I spend some time figuring out how the Basic compiler uploads programs to the controller.
 
@@ -8,7 +8,7 @@ The hardware in the kit is an ATmega88pa hooked-up to a FTDI232RL and the contro
 
 The MCS bootloader works in the following way:
 
-1. It configures to UART to run with 19200 baud 8N1
+1. It configures the UART to run at 19200 baud with 8 data bits, no parity and 1 stop bit
 2. It polls the serial port waiting for either 123 (flash upload) or 124 (eeprom upload) 
 3. After it receives one of those two bytes, it runs a simple X-modem protocol to read the data in 128-byte chunks and writes it to flash/eeprom.
 
