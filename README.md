@@ -8,9 +8,9 @@ The hardware in the kit is an ATmega88pa hooked-up to a FTDI232RL and the contro
 
 The MCS bootloader works in the following way:
 
-1.) It configures to UART to run with 19200 baud 8N1
-2.) It polls the serial port waiting for either 123 (flash upload) or 124 (eeprom upload) 
-3.) After it receives one of those two bytes, it runs a simple X-modem protocol to read the data in 128-byte chunks and writes it to flash/eeprom.
+1. It configures to UART to run with 19200 baud 8N1
+2. It polls the serial port waiting for either 123 (flash upload) or 124 (eeprom upload) 
+3. After it receives one of those two bytes, it runs a simple X-modem protocol to read the data in 128-byte chunks and writes it to flash/eeprom.
 
 ## Compiling 
 
