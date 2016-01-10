@@ -178,7 +178,7 @@ int read_byte(unsigned char *p)
 {
     int ret;
     unsigned char rxbuffer;
-    int retries = 50;
+    int retries = 10;
 
     while ( retries-- > 0)
     {
@@ -188,7 +188,7 @@ int read_byte(unsigned char *p)
             *p=rxbuffer;
             return 1;
         }
-        mssleep(100);
+        mssleep(20);
     };
 
     fprintf(stderr,"read() timeout elapsed\n");
@@ -346,6 +346,7 @@ int main(int argc,char **args)
     }
 
     // Transmit file
+    int moreRetries = 5;
     while( 1 )
     {
         printf("Sending Init byte...\n");
@@ -360,7 +361,9 @@ int main(int argc,char **args)
                 break;
             }
             fprintf(stderr, "Expected 123 but got : %d\n", (int) rxbuffer);
-            goto done;
+            if ( moreRetries-- <= 0 ) {
+                goto done;
+            }
         }
     }
 
